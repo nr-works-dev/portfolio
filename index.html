@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>潤華ねろ | Portfolio</title>
+  <style>
+    :root {
+      --primary: #4a90e2;
+      --bg: #f8f9fa;
+      --text: #333333;
+      --card-bg: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+    body { background: var(--bg); color: var(--text); line-height: 1.6; }
+    
+    /* ヘッダー */
+    header { background: #fff; padding: 1.5rem 1rem; text-align: center; border-bottom: 1px solid #eee; }
+    header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    header p { color: #666; font-size: 0.95rem; }
+
+    /* メインコンテナ */
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
+    section { margin-bottom: 3rem; }
+    h2 { font-size: 1.4rem; border-left: 4px solid var(--primary); padding-left: 0.5rem; margin-bottom: 1.5rem; }
+
+    /* 実績カード */
+    .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .work-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .work-img { width: 100%; height: 180px; object-fit: cover; background: #e0e0e0; }
+    .work-info { padding: 1.2rem; }
+    .work-info h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .work-info p { font-size: 0.9rem; color: #555; margin-bottom: 1rem; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .tag { font-size: 0.75rem; background: #eef4ff; color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 4px; }
+    .btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem; }
+
+    /* 強み・特徴 */
+    .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .feature-box { background: var(--card-bg); padding: 1.2rem; border-radius: 8px; }
+    .feature-box h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--primary); }
+
+    /* お問い合わせ */
+    .contact-area { text-align: center; background: var(--card-bg); padding: 2rem; border-radius: 8px; }
+    .contact-btn { background: #000; color: #fff; display: inline-block; padding: 0.8rem 1.8rem; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 1rem; }
+
+    footer { text-align: center; padding: 2rem 1rem; color: #888; font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>潤華ねろ</h1>
+    <p>Web制作 / フロントエンド開発 / 個人開発</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- 制作実績 -->
+    <section>
+      <h2>Works / 制作実績</h2>
+      <div class="works-grid">
+        
+        <!-- 実績1: VTuber向けHP -->
+        <div class="work-card">
+          <img src="hp-sample.png" alt="HPサンプル" class="work-img">
+          <div class="work-info">
+            <h3>活動者向け公式HP（専用管理画面付き）</h3>
+            <p>GitHub Pagesを活用し維持費0円で運用可能。スプレッドシート連動の専用管理画面からスマホで簡単に更新できます。</p>
+            <div class="tags">
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">Google Apps Script</span>
+            </div>
+            <a href="https://websample2000-ops.github.io/websample/" target="_blank" class="btn">サイトを見る</a>
+          </div>
+        </div>
+
+        <!-- 実績2: ガチャシミュレーター -->
+        <div class="work-card">
+          <img src="gacha-sample.png" alt="ガチャシミュレーター" class="work-img">
+          <div class="work-info">
+            <h3>ガチャシミュレーター（Webツール）</h3>
+            <p>確率計算ロジック、カード演出、履歴・コレクション管理機能を備えたインタラクティブなWebアプリケーションです。</p>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">フロントエンド開発</span>
+              <span class="tag">UI/UX</span>
+            </div>
+            <a href="https://holodrea-wiki.github.io/holodreams-member/gacha.html" target="_blank" class="btn">ツールを試す</a>
+          </div>
+        </div>
+
+        <!-- 実績3: データベースサイト -->
+        <div class="work-card">
+          <img src="db-sample.png" alt="攻略データベース" class="work-img">
+          <div class="work-info">
+            <h3>ホロドリ 非公式攻略データベース</h3>
+            <p>リアルタイム検索、多軸フィルター、モーダル詳細表示など大量データをスムーズに閲覧できるポータルサイトです。</p>
+            <div class="tags">
+              <span class="tag">JavaScript</span>
+              <span class="tag">データバインディング</span>
+              <span class="tag">レスポンシブ</span>
+            </div>
+            <a href="https://holodrea-wiki.github.io/holodreams-member/index.html" target="_blank" class="btn">サイトを見る</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 特徴・強み -->
+    <section>
+      <h2>Features / 選ばれる理由</h2>
+      <div class="features-list">
+        <div class="feature-box">
+          <h3>💰 維持費完全0円</h3>
+          <p>月額のサーバー代・ドメイン代をかけずに、無料で長期運用できる構成を設計します。</p>
+        </div>
+        <div class="feature-box">
+          <h3>📱 スマホで簡単更新</h3>
+          <p>専用の管理画面から、専門知識不要でブログ感覚で最新情報を更新できます。</p>
+        </div>
+        <div class="feature-box">
+          <h3>⚙️ 自由な動的機能</h3>
+          <p>検索フィルターやガチャなど、ご要望に合わせたオリジナルツールの開発・組み込みも可能です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- お問い合わせ -->
+    <section>
+      <h2>Contact / ご相談・お問い合わせ</h2>
+      <div class="contact-area">
+        <p>制作のご相談、お見積り、無償モニターへのご応募はX（Twitter）のDMまでお気軽にどうぞ！</p>
+        <a href="https://x.com/urukanero_works" target="_blank" class="contact-btn">X（@urukanero_works）へ連絡する</a>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2026 潤華ねろ All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
