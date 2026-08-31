@@ -37,6 +37,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -51,6 +52,8 @@
       background-position: center top;
       background-attachment: fixed;
       background-repeat: no-repeat;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     /* ---------------- 上部固定ヘッダー ---------------- */
@@ -78,6 +81,43 @@
       color: var(--logo-accent);
       text-decoration: none;
       letter-spacing: 0.04em;
+    }
+
+    /* ハンバーガーボタン（PCは非表示） */
+    .hamburger-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      padding: 6px;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      z-index: 10001;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+    .hamburger-btn:hover {
+      background: rgba(2, 132, 199, 0.08);
+    }
+    .hamburger-btn span {
+      display: block;
+      width: 24px;
+      height: 2.5px;
+      background: var(--nav-accent);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger-btn.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-btn.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
     }
 
     .header-nav {
@@ -169,16 +209,13 @@
 
     /* セクション下部バナー */
     .section-divider-banner {
-      width: 100vw;
-      position: relative;
-      left: 50%;
-      right: 50%;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      width: 100%;
+      max-width: 100%;
       margin-top: 50px;
       margin-bottom: 20px;
       line-height: 0;
       overflow: hidden;
+      border-radius: 12px;
     }
     .section-divider-banner img {
       width: 100%;
@@ -186,7 +223,6 @@
       display: block;
       box-shadow: none;
       border: none;
-      border-radius: 0;
       outline: none;
     }
 
@@ -316,7 +352,6 @@
       cursor: grabbing;
       scroll-behavior: auto;
     }
-    /* カスタムスクロールバー */
     .works-track::-webkit-scrollbar {
       height: 6px;
     }
@@ -333,7 +368,7 @@
     }
 
     .work-slide-card {
-      flex: 0 0 calc((100% - 28px) / 3); /* PC表示で約3枚並ぶ設計 */
+      flex: 0 0 calc((100% - 28px) / 3);
       min-width: 240px;
       max-width: 290px;
       aspect-ratio: 16 / 9;
@@ -503,7 +538,6 @@
       width: 100%;
     }
 
-    /* メールボタン（パープルピル型） */
     .btn-contact-mail {
       display: inline-flex;
       align-items: center;
@@ -528,7 +562,6 @@
       box-shadow: 0 6px 20px rgba(91, 75, 226, 0.45);
     }
 
-    /* Xボタン（ダークピル型） */
     .btn-contact-x {
       display: inline-flex;
       align-items: center;
@@ -554,7 +587,6 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
 
-    /* 外部リンクボタン（画像2枚目準拠のブルーピル型） */
     .btn-contact-external {
       display: inline-flex;
       align-items: center;
@@ -579,7 +611,6 @@
       box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
     }
 
-    /* 汎用リンクボタン */
     .btn-contact-general {
       display: inline-flex;
       align-items: center;
@@ -602,7 +633,6 @@
       transform: translateY(-2px);
     }
 
-    /* メーラー起動案内 */
     .contact-email-fallback {
       font-size: 0.9rem;
       font-weight: 700;
@@ -664,25 +694,63 @@
       color: var(--text-muted);
     }
 
+    /* ---------------- レスポンシブ (スマホ表示) ---------------- */
     @media (max-width: 768px) {
-      /* ★ スマホ時の背景画像リサイズ設定を追加 */
       body {
-        background-size: 100% auto;      /* 画面幅に合わせて横幅ぴったりにリサイズ */
-        background-attachment: scroll;    /* fixedによる巨大化バグを解除 */
-        background-repeat: repeat-y;      /* 縦スクロールに合わせて自然にリピート */
+        background-size: 100% auto;
+        background-attachment: scroll;
+        background-repeat: repeat-y;
         background-position: center top;
       }
 
       .site-header {
-        padding: 12px 18px;
+        padding: 12px 20px;
+        position: sticky;
       }
+
+      .hamburger-btn {
+        display: flex;
+      }
+
+      /* スマホ用ドロップダウンメニュー */
       .header-nav {
-        gap: 8px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px 16px 16px 16px;
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       }
+
+      .header-nav.is-open {
+        max-height: 320px;
+        opacity: 1;
+        visibility: visible;
+      }
+
       .header-nav a {
-        font-size: 0.9rem;
-        padding: 4px 8px;
+        padding: 12px 16px;
+        font-size: 1.05rem;
+        border-bottom: 1px solid #f1f5f9;
+        border-radius: 8px;
+        text-align: center;
       }
+      .header-nav a:last-child {
+        border-bottom: none;
+      }
+
       .container {
         padding: 20px 16px 60px 16px;
       }
@@ -693,11 +761,12 @@
         font-size: 1.6rem;
       }
       .work-slide-card {
-        flex: 0 0 75%;
+        flex: 0 0 80%;
         min-width: 220px;
       }
-      .works-nav-prev { left: -8px; }
-      .works-nav-next { right: -8px; }
+      .works-nav-prev { left: -4px; }
+      .works-nav-next { right: -4px; }
+      
       .btn-contact-mail, .btn-contact-x, .btn-contact-external, .btn-contact-general {
         width: 100%;
       }
@@ -709,12 +778,20 @@
   <!-- 固定ヘッダーバー -->
   <header class="site-header">
     <a href="#" class="header-logo">PORTFOLIO</a>
-    <nav class="header-nav">
-      <a href="#about">About</a>
-      <a href="#techstack">TechStack</a>
-      <a href="#works">Works</a>
-      <a href="#strengths">Strengths</a>
-      <a href="#contact">Contact</a>
+    
+    <!-- スマホ用ハンバーガーメニューボタン -->
+    <button class="hamburger-btn" id="hamburger-btn" aria-label="メニュー開閉">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="header-nav" id="header-nav">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#techstack" class="nav-link">TechStack</a>
+      <a href="#works" class="nav-link">Works</a>
+      <a href="#strengths" class="nav-link">Strengths</a>
+      <a href="#contact" class="nav-link">Contact</a>
     </nav>
   </header>
 
@@ -740,6 +817,25 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ハンバーガーメニューの開閉制御
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const headerNav = document.getElementById('header-nav');
+
+    if (hamburgerBtn && headerNav) {
+      hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('active');
+        headerNav.classList.toggle('is-open');
+      });
+
+      // リンクをタップした時に自動でメニューを閉じる
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          hamburgerBtn.classList.remove('active');
+          headerNav.classList.remove('is-open');
+        });
+      });
+    }
 
     function openImageModal(src) {
       const modal = document.getElementById('image-modal');
@@ -869,7 +965,6 @@
             <div class="works-list">`;
 
           data.Works.forEach((work, wIdx) => {
-            // 画像リストの構築 (images配列優先、無ければ単一image/imagesプロパティ)
             let imgList = [];
             if (Array.isArray(work.images) && work.images.length > 0) {
               imgList = work.images.filter(img => img && String(img).trim() !== '');
@@ -971,7 +1066,6 @@
             const titleVal = ct.mail_title || '';
             const textVal = ct.mail_text || '';
 
-            // 1. type: mail の場合
             if (rawType === 'mail' || rawType === 'メール') {
               emailFallbackAddress = val;
               const subjectParam = titleVal ? `?subject=${encodeURIComponent(titleVal)}` : '';
@@ -983,7 +1077,6 @@
                   <i class="fa-solid fa-envelope"></i> お問い合わせ
                 </a>`;
 
-            // 2. type: XLink の場合（完全一致で判定）
             } else if (rawType === 'xlink' || rawType === 'x' || rawType === 'twitter') {
               const displayLabel = itemLabel ? `𝕏 ${itemLabel}` : '𝕏 X';
               html += `
@@ -991,7 +1084,6 @@
                   ${escapeHtml(displayLabel)}
                 </a>`;
 
-            // 3. type: externalLink の場合（青色のピル型ボタン）
             } else if (rawType === 'externallink' || rawType === '外部リンク') {
               const displayLabel = itemLabel ? `${itemLabel}` : 'Webサイトを見る';
               html += `
@@ -999,7 +1091,6 @@
                   <i class="fa-solid fa-arrow-up-right-from-square"></i> ${escapeHtml(displayLabel)}
                 </a>`;
 
-            // 4. その他のリンク
             } else {
               const isHttp = val.startsWith('http');
               const targetAttr = isHttp ? 'target="_blank" rel="noopener noreferrer"' : '';
@@ -1012,7 +1103,6 @@
 
           html += `</div>`;
 
-          // メーラーが起動しない場合のフォールバック表示
           if (emailFallbackAddress) {
             html += `
               <div class="contact-email-fallback">
@@ -1025,7 +1115,6 @@
 
         app.innerHTML = html;
 
-        // Works スライダーのイベントバインド
         initWorksSliders(data.Works || []);
 
       } catch (err) {
@@ -1038,7 +1127,6 @@
       }
     }
 
-    // Works スライダーの操作ロジック
     function initWorksSliders(worksList) {
       worksList.forEach((_, wIdx) => {
         const track = document.getElementById(`track-${wIdx}`);
@@ -1049,7 +1137,6 @@
         prevBtn.onclick = () => track.scrollBy({ left: -280, behavior: 'smooth' });
         nextBtn.onclick = () => track.scrollBy({ left: 280, behavior: 'smooth' });
 
-        // マウスドラッグ対応
         let isDown = false;
         let startX = 0;
         let scrollLeftPos = 0;
@@ -1079,7 +1166,6 @@
           track.scrollLeft = scrollLeftPos - walk;
         });
 
-        // ホイールスクロール対応
         track.addEventListener('wheel', (e) => {
           if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
             e.preventDefault();
@@ -1087,7 +1173,6 @@
           }
         }, { passive: false });
 
-        // ナビボタンの表示・透過制御
         const updateNavButtons = () => {
           const maxScrollLeft = track.scrollWidth - track.clientWidth;
           if (maxScrollLeft <= 4) {
