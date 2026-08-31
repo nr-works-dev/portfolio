@@ -25,37 +25,36 @@ Google スプレッドシートをデータベースとして活用し、Google 
 ---
 
 ## ✨ 主な特徴・設計のこだわり
-サーバーレス＆維持費0円運用
-専用バックエンドサーバーを立てず、Google スプレッドシート ＋ GAS ＋ GitHub Pages の組み合わせにより、固定費を完全ゼロに抑えて運用。
+### サーバーレス＆維持費0円運用
+- 専用バックエンドサーバーを立てず、Google スプレッドシート ＋ GAS ＋ GitHub Pages の組み合わせにより、固定費を完全ゼロに抑えて運用。
 
-スキーマ駆動による柔軟なデータ管理
-schema.yaml に定義された構造に従い、スプレッドシートの各シート（About, TechStack, Works, Strengths, Contact, asset）を data.json へ構造化パース。
+### スキーマ駆動による柔軟なデータ管理
+- schema.yaml に定義された構造に従い、スプレッドシートの各シート（About, TechStack, Works, Strengths, Contact, asset）を data.json へ構造化パース。
 
-モダンでレスポンシブなUI/UX
+### モダンでレスポンシブなUI/UX
+- すりガラス効果（backdrop-filter）を採用した画面上部追従ヘッダー。
 
-すりガラス効果（backdrop-filter）を採用した画面上部追従ヘッダー。
+- Noto Sans JP を最優先とした鮮明なタイポグラフィ設計。
 
-Noto Sans JP を最優先とした鮮明なタイポグラフィ設計。
+- 実績をスムーズに確認できる横スクロール＋左右ナビゲーション付きカルーセルスライダー。
 
-実績をスムーズに確認できる横スクロール＋左右ナビゲーション付きカルーセルスライダー。
+- モバイル端末（スマートフォン・タブレット）に完全対応したレスポンシブデザイン。
 
-モバイル端末（スマートフォン・タブレット）に完全対応したレスポンシブデザイン。
-
-きめ細やかなContact導線
+### きめ細やかなContact導線
 メーラー自動起動（件名・本文プリセット）に加え、メーラー非対応環境向けのメールアドレスフォールバック案内や、X・外部リンクの視認性に優れたボタンスタイリング。
 
 ---
 
 ## 💻 技術スタック
-フロントエンド: HTML5, CSS3 (CSS Variables, Flexbox, Grid), JavaScript (Vanilla ES6+)
+- フロントエンド: HTML5, CSS3 (CSS Variables, Flexbox, Grid), JavaScript (Vanilla ES6+)
 
-バックエンド / API: Google Apps Script (GAS)
+- バックエンド / API: Google Apps Script (GAS)
 
-データベース / 管理: Google Sheets (Google スプレッドシート)
+- データベース / 管理: Google Sheets (Google スプレッドシート)
 
-インフラ / ホスティング: GitHub Pages, GitHub REST API
+- インフラ / ホスティング: GitHub Pages, GitHub REST API
 
-フォント・アイコン: Google Fonts (Noto Sans JP, Poppins, Outfit, Fredoka), FontAwesome 6
+- フォント・アイコン: Google Fonts (Noto Sans JP, Poppins, Outfit, Fredoka), FontAwesome 6
 
 ---
 
