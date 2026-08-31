@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T11:42:11.969Z",
+  "updatedAt": "2026-08-31T11:43:03.210Z",
   "asset": [
     {
       "id": 1,
@@ -197,7 +197,7 @@
   ],
   "Contact": [
     {
-      "item": "メールアドレス",
+      "item": "お問い合わせ窓口",
       "value": "urukanero.works@gmail.com"
     },
     {
