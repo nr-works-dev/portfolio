@@ -157,10 +157,14 @@ Contact:
                 - mail
                 - externalLink
                 - designLink
+                - XLink
+                - YouTubeLinl
             optionLabels:
                 - "メール"
                 - "外部リンク"
                 - "デザインリンク"
+                - "X"
+                - "YouTube"
             required: true
         image:
             label: "ボタンUI"
