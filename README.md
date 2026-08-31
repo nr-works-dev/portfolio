@@ -9,7 +9,7 @@ Google スプレッドシートをデータベースとして活用し、Google 
 
 ## 🛠 システムアーキテクチャ
 
-```text
+```
 [ Google スプレッドシート ] (Master DB)
          │
          ▼ (トリガー / 手動同期)
@@ -19,7 +19,8 @@ Google スプレッドシートをデータベースとして活用し、Google 
 [ GitHub Repository ] (data.json & assets)
          │
          ▼ (ホスティング)
-[ GitHub Pages (index.html) ]```
+[ GitHub Pages (index.html) ]
+```
 
 ---
 
