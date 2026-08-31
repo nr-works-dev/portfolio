@@ -19,7 +19,7 @@ Google スプレッドシートをデータベースとして活用し、Google 
 [ GitHub Repository ] (data.json & assets)
          │
          ▼ (ホスティング)
-[ GitHub Pages (index.html) ]
+[ GitHub Pages (index.html) ]```
 
 ✨ 主な特徴・設計のこだわり
 サーバーレス＆維持費0円運用
