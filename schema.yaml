@@ -100,11 +100,13 @@ Works:
             label: "説明"
             type: text
             required: true
-        image:
-            label: "イメージ画像"
-            type: url
+        images:
+            type: array
+            description: "イメージ画像"
             uploadPath: assets
-            required: false
+            items:
+                type: url
+                description: "イメージ画像"
         web:
             label: "実績のサイトや動画URL"
             type: url
