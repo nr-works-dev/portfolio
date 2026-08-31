@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T12:31:06.055Z",
+  "updatedAt": "2026-08-31T12:38:10.332Z",
   "asset": [
     {
       "id": 1,
@@ -139,7 +139,17 @@
       "id": 1,
       "title": "アプリゲーム 非公式攻略データベース",
       "comment": "リアルタイム検索、多軸フィルター、モーダル詳細表示など大量データをスムーズに閲覧でき、\n確率計算ロジック、カード演出、履歴・コレクション管理機能を備えたポータルサイトです。",
-      "image": "",
+      "images": [
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-1.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-2.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-3.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-4.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-5.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-6.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-7.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-8.jpg"
+      ],
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-1.jpg",
       "web": "https://holodrea-wiki.github.io/holodreams-member/index.html",
       "admin": "",
       "github": "https://github.com/websample2000-ops/websample",
@@ -157,7 +167,14 @@
       "id": 2,
       "title": "活動者向け公式HP（専用管理画面付き）",
       "comment": "GitHub Pagesを活用し維持費0円で運用可能。スプレッドシート連動の専用管理画面からスマホで簡単に更新できます。",
-      "image": "",
+      "images": [
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web2_image-1.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web2_image-2.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web2_image-3.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web2_image-4.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web2_image-5.jpg"
+      ],
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web2_image-1.jpg",
       "web": "https://websample2000-ops.github.io/websample/",
       "admin": "https://websample2000-ops.github.io/websample/admin.html",
       "github": "https://github.com/websample2000-ops/websample",
@@ -198,15 +215,27 @@
   "Contact": [
     {
       "item": "お問い合わせ",
-      "value": "urukanero.works@gmail.com"
+      "type": "mail",
+      "image": "",
+      "value": "urukanero.works@gmail.com",
+      "mail_title": "【依頼】Webサイト作成",
+      "mail_text": "【ご所属・企業名】: \n【お名前】: \n【ご連絡先メールアドレス】: \n\n【お問い合わせ・ご要請内容】: \n※具体的な修正・削除要請内容をご記入ください。"
     },
     {
       "item": "@urukanero_works",
-      "value": "https://x.com/urukanero_works"
+      "type": "XLink",
+      "image": "",
+      "value": "https://x.com/urukanero_works",
+      "mail_title": "",
+      "mail_text": ""
     },
     {
       "item": "このサイトについて",
-      "value": "https://github.com/nr-works-dev/portfolio"
+      "type": "externalLink",
+      "image": "",
+      "value": "https://github.com/nr-works-dev/portfolio",
+      "mail_title": "",
+      "mail_text": ""
     }
   ]
 }
