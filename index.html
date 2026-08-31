@@ -3,145 +3,781 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>潤華ねろ | Portfolio</title>
+  <title>Portfolio</title>
+  <meta name="description" content="UI設計・フロントエンド実装・AI駆動開発・低コストDX推進のポートフォリオ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #4a90e2;
-      --bg: #f8f9fa;
-      --text: #333333;
-      --card-bg: #ffffff;
+      --bg-color: #0b0f19;
+      --card-bg: rgba(22, 27, 34, 0.85);
+      --card-border: rgba(255, 255, 255, 0.12);
+      --accent-color: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.25);
+      --accent-sub: #818cf8;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --text-dim: #6b7280;
+      --tag-bg: rgba(56, 189, 248, 0.12);
+      --tag-text: #7dd3fc;
+      --tag-border: rgba(56, 189, 248, 0.25);
+      --btn-bg: #1e293b;
+      --btn-hover: #334155;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; }
-    
-    /* ヘッダー */
-    header { background: #fff; padding: 1.5rem 1rem; text-align: center; border-bottom: 1px solid #eee; }
-    header h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
-    header p { color: #666; font-size: 0.95rem; }
 
-    /* メインコンテナ */
-    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1rem; }
-    section { margin-bottom: 3rem; }
-    h2 { font-size: 1.4rem; border-left: 4px solid var(--primary); padding-left: 0.5rem; margin-bottom: 1.5rem; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    /* 実績カード */
-    .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-    .work-card { background: var(--card-bg); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-    .work-img { width: 100%; height: 180px; object-fit: cover; background: #e0e0e0; }
-    .work-info { padding: 1.2rem; }
-    .work-info h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .work-info p { font-size: 0.9rem; color: #555; margin-bottom: 1rem; }
-    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .tag { font-size: 0.75rem; background: #eef4ff; color: var(--primary); padding: 0.2rem 0.6rem; border-radius: 4px; }
-    .btn { display: inline-block; background: var(--primary); color: #fff; text-decoration: none; padding: 0.5rem 1rem; border-radius: 4px; font-size: 0.9rem; }
+    body {
+      font-family: 'Noto Sans JP', 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.7;
+      min-height: 100vh;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+      position: relative;
+    }
 
-    /* 強み・特徴 */
-    .features-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
-    .feature-box { background: var(--card-bg); padding: 1.2rem; border-radius: 8px; }
-    .feature-box h3 { font-size: 1rem; margin-bottom: 0.5rem; color: var(--primary); }
+    /* 背景オーバーレイ（可読性向上） */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 10%, rgba(11, 15, 25, 0.65) 0%, rgba(11, 15, 25, 0.92) 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
 
-    /* お問い合わせ */
-    .contact-area { text-align: center; background: var(--card-bg); padding: 2rem; border-radius: 8px; }
-    .contact-btn { background: #000; color: #fff; display: inline-block; padding: 0.8rem 1.8rem; border-radius: 30px; text-decoration: none; font-weight: bold; margin-top: 1rem; }
+    /* 全体コンテナ */
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 40px 20px 80px 20px;
+    }
 
-    footer { text-align: center; padding: 2rem 1rem; color: #888; font-size: 0.8rem; }
+    /* ヘッダー / ヒーロー */
+    .hero {
+      text-align: center;
+      padding: 40px 0 60px 0;
+    }
+    .hero-title {
+      font-size: 2.4rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent-color) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+    }
+    .hero-subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* ナビゲーション */
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+    .nav-link:hover {
+      color: #fff;
+      background: rgba(56, 189, 248, 0.2);
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    /* 各セクション */
+    .section-wrapper {
+      margin-bottom: 70px;
+    }
+
+    .section-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-header {
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent-color);
+      margin-bottom: 4px;
+    }
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--card-border) 0%, transparent 100%);
+      margin-left: 10px;
+    }
+
+    /* セクション下部の区切りバナー */
+    .section-divider-banner {
+      width: 100%;
+      margin-top: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .section-divider-banner img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      opacity: 0.9;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.3s ease;
+    }
+    .section-divider-banner img:hover {
+      opacity: 1;
+    }
+
+    /* ---------------- About ---------------- */
+    .about-lead {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--card-border);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .about-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .about-item {
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 8px;
+    }
+    .about-item.is-paragraph {
+      background: rgba(56, 189, 248, 0.04);
+    }
+    .about-item-summary {
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+    .about-item-detail {
+      font-size: 0.95rem;
+      color: var(--text-main);
+    }
+    .about-closing {
+      margin-top: 20px;
+      font-weight: 600;
+      color: #e5e7eb;
+      background: rgba(255, 255, 255, 0.04);
+      padding: 14px 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    /* ---------------- TechStack ---------------- */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .tech-category-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 22px;
+    }
+    .tech-cat-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tech-cat-title::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: var(--accent-color);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent-color);
+    }
+    .tech-skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .tech-skill-item {
+      font-size: 0.92rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
+      color: var(--text-muted);
+    }
+    .tech-badge {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid var(--tag-border);
+      padding: 2px 10px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+    .tech-exp {
+      color: #e5e7eb;
+      flex: 1;
+      min-width: 240px;
+    }
+
+    /* ---------------- Works ---------------- */
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .work-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+    .work-card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-3px);
+    }
+    .work-image-wrap {
+      width: 100%;
+      max-height: 280px;
+      overflow: hidden;
+      background: #111827;
+    }
+    .work-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .work-card:hover .work-image-wrap img {
+      transform: scale(1.03);
+    }
+    .work-content {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .work-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 12px;
+    }
+    .work-comment {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      white-space: pre-wrap;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+    .work-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+    .work-tag {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: #cbd5e1;
+    }
+    .work-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent-color);
+      color: #0b0f19;
+    }
+    .btn-primary:hover {
+      background: #7dd3fc;
+      box-shadow: 0 0 14px var(--accent-glow);
+    }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      color: #e2e8f0;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #ffffff;
+    }
+
+    /* ---------------- Strengths ---------------- */
+    .strengths-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 20px;
+    }
+    .strength-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .strength-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent-sub);
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .strength-summary {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .strength-detail {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ---------------- Contact ---------------- */
+    .contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 10px;
+    }
+    .contact-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.25s ease;
+      min-width: 260px;
+    }
+    .contact-card:hover {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--tag-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: var(--accent-color);
+      flex-shrink: 0;
+    }
+    .contact-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-item-name {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    .contact-item-value {
+      font-size: 0.92rem;
+      color: #ffffff;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+
+    /* ローディング & エラー表示 */
+    .status-msg {
+      text-align: center;
+      padding: 60px 20px;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .container {
+        padding: 24px 14px 60px 14px;
+      }
+      .section-card {
+        padding: 26px 18px;
+      }
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .strengths-grid {
+        grid-template-columns: 1fr;
+      }
+      .contact-card {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>潤華ねろ</h1>
-    <p>Web制作 / フロントエンド開発 / 個人開発</p>
-  </header>
-
   <div class="container">
-    
-    <!-- 制作実績 -->
-    <section>
-      <h2>Works / 制作実績</h2>
-      <div class="works-grid">
-        
-        <!-- 実績1: VTuber向けHP -->
-        <div class="work-card">
-          <img src="hp-sample.png" alt="HPサンプル" class="work-img">
-          <div class="work-info">
-            <h3>活動者向け公式HP（専用管理画面付き）</h3>
-            <p>GitHub Pagesを活用し維持費0円で運用可能。スプレッドシート連動の専用管理画面からスマホで簡単に更新できます。</p>
-            <div class="tags">
-              <span class="tag">HTML/CSS</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Google Apps Script</span>
-            </div>
-            <a href="https://websample2000-ops.github.io/websample/" target="_blank" class="btn">サイトを見る</a>
-          </div>
-        </div>
+    <header class="hero">
+      <h1 class="hero-title">Portfolio</h1>
+      <p class="hero-subtitle">UI Design & Frontend Development / AI-Assisted DX</p>
+    </header>
 
-        <!-- 実績2: ガチャシミュレーター -->
-        <div class="work-card">
-          <img src="gacha-sample.png" alt="ガチャシミュレーター" class="work-img">
-          <div class="work-info">
-            <h3>ガチャシミュレーター（Webツール）</h3>
-            <p>確率計算ロジック、カード演出、履歴・コレクション管理機能を備えたインタラクティブなWebアプリケーションです。</p>
-            <div class="tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">フロントエンド開発</span>
-              <span class="tag">UI/UX</span>
-            </div>
-            <a href="https://holodrea-wiki.github.io/holodreams-member/gacha.html" target="_blank" class="btn">ツールを試す</a>
-          </div>
-        </div>
+    <nav class="nav-bar">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#techstack" class="nav-link">TechStack</a>
+      <a href="#works" class="nav-link">Works</a>
+      <a href="#strengths" class="nav-link">Strengths</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
 
-        <!-- 実績3: データベースサイト -->
-        <div class="work-card">
-          <img src="db-sample.png" alt="攻略データベース" class="work-img">
-          <div class="work-info">
-            <h3>ホロドリ 非公式攻略データベース</h3>
-            <p>リアルタイム検索、多軸フィルター、モーダル詳細表示など大量データをスムーズに閲覧できるポータルサイトです。</p>
-            <div class="tags">
-              <span class="tag">JavaScript</span>
-              <span class="tag">データバインディング</span>
-              <span class="tag">レスポンシブ</span>
-            </div>
-            <a href="https://holodrea-wiki.github.io/holodreams-member/index.html" target="_blank" class="btn">サイトを見る</a>
-          </div>
-        </div>
+    <main id="app">
+      <div class="status-msg">データを読み込み中...</div>
+    </main>
 
-      </div>
-    </section>
-
-    <!-- 特徴・強み -->
-    <section>
-      <h2>Features / 選ばれる理由</h2>
-      <div class="features-list">
-        <div class="feature-box">
-          <h3>💰 維持費完全0円</h3>
-          <p>月額のサーバー代・ドメイン代をかけずに、無料で長期運用できる構成を設計します。</p>
-        </div>
-        <div class="feature-box">
-          <h3>📱 スマホで簡単更新</h3>
-          <p>専用の管理画面から、専門知識不要でブログ感覚で最新情報を更新できます。</p>
-        </div>
-        <div class="feature-box">
-          <h3>⚙️ 自由な動的機能</h3>
-          <p>検索フィルターやガチャなど、ご要望に合わせたオリジナルツールの開発・組み込みも可能です。</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- お問い合わせ -->
-    <section>
-      <h2>Contact / ご相談・お問い合わせ</h2>
-      <div class="contact-area">
-        <p>制作のご相談、お見積り、無償モニターへのご応募はX（Twitter）のDMまでお気軽にどうぞ！</p>
-        <a href="https://x.com/urukanero_works" target="_blank" class="contact-btn">X（@urukanero_works）へ連絡する</a>
-      </div>
-    </section>
-
+    <footer>
+      <p>&copy; <span id="year"></span> Portfolio. All rights reserved.</p>
+    </footer>
   </div>
 
-  <footer>
-    <p>© 2026 潤華ねろ All Rights Reserved.</p>
-  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
+    async function loadPortfolio() {
+      const app = document.getElementById('app');
+      try {
+        // data.json の取得
+        const res = await fetch('./data.json?t=' + new Date().getTime());
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        const data = await res.json();
+
+        // 1. 背景画像の設定 (asset から title === 'ページ背景' を抽出)
+        const bgAsset = (data.asset || []).find(a => a.title === 'ページ背景');
+        if (bgAsset && bgAsset.image) {
+          document.body.style.backgroundImage = `url('${bgAsset.image}')`;
+        }
+
+        // アセットのバナーマップ作成
+        const bannerMap = {};
+        (data.asset || []).forEach(a => {
+          if (a.type === 'banner' || a.title) {
+            bannerMap[a.title] = a.image;
+          }
+        });
+
+        // 2. HTMLの組み立て
+        let html = '';
+
+        // ------------------ (1) About ------------------
+        if (data.About && data.About.length > 0) {
+          html += `
+          <section id="about" class="section-wrapper">
+            <div class="section-card">
+              <div class="section-header">
+                <span class="section-tag">Profile</span>
+                <h2 class="section-title">About</h2>
+              </div>
+              <div class="about-content">`;
+
+          const leadItem = data.About.find(item => item.id === 1);
+          if (leadItem) {
+            html += `<div class="about-lead">${escapeHtml(leadItem.summary)}<br><span style="font-size:0.95rem; font-weight:normal; color:var(--text-muted); display:inline-block; margin-top:6px;">${escapeHtml(leadItem.detail)}</span></div>`;
+          }
+
+          html += `<div class="about-list">`;
+          data.About.filter(item => item.id > 1 && item.id < 5).forEach(item => {
+            html += `
+              <div class="about-item ${item.paragraph ? 'is-paragraph' : ''}">
+                ${item.summary ? `<div class="about-item-summary">${escapeHtml(item.summary)}</div>` : ''}
+                <div class="about-item-detail">${escapeHtml(item.detail)}</div>
+              </div>`;
+          });
+          html += `</div>`;
+
+          const closingItem = data.About.find(item => item.id === 5);
+          if (closingItem) {
+            html += `<div class="about-closing">${escapeHtml(closingItem.detail)}</div>`;
+          }
+
+          html += `</div>`;
+
+          // 装飾バナー配置
+          if (bannerMap['About']) {
+            html += `
+              <div class="section-divider-banner">
+                <img src="${bannerMap['About']}" alt="About Banner" loading="lazy">
+              </div>`;
+          }
+
+          html += `</div></section>`;
+        }
+
+        // ------------------ (2) TechStack ------------------
+        if (data.TechStack && data.TechStack.length > 0) {
+          html += `
+          <section id="techstack" class="section-wrapper">
+            <div class="section-card">
+              <div class="section-header">
+                <span class="section-tag">Skills & Technology</span>
+                <h2 class="section-title">TechStack</h2>
+              </div>
+              <div class="tech-grid">`;
+
+          data.TechStack.forEach(cat => {
+            html += `
+              <div class="tech-category-card">
+                <h3 class="tech-cat-title">${escapeHtml(cat.technology)}</h3>
+                <div class="tech-skills-list">`;
+            (cat.skills || []).forEach(skill => {
+              html += `
+                <div class="tech-skill-item">
+                  ${skill.system ? `<span class="tech-badge">${escapeHtml(skill.system)}</span>` : ''}
+                  <span class="tech-exp">${escapeHtml(skill.explanation)}</span>
+                </div>`;
+            });
+            html += `</div></div>`;
+          });
+
+          html += `</div>`;
+
+          if (bannerMap['TechStack']) {
+            html += `
+              <div class="section-divider-banner">
+                <img src="${bannerMap['TechStack']}" alt="TechStack Banner" loading="lazy">
+              </div>`;
+          }
+
+          html += `</div></section>`;
+        }
+
+        // ------------------ (3) Works ------------------
+        if (data.Works && data.Works.length > 0) {
+          html += `
+          <section id="works" class="section-wrapper">
+            <div class="section-card">
+              <div class="section-header">
+                <span class="section-tag">Portfolio & Showcase</span>
+                <h2 class="section-title">Works</h2>
+              </div>
+              <div class="works-grid">`;
+
+          data.Works.forEach(work => {
+            html += `
+              <div class="work-card">
+                ${work.image ? `
+                  <div class="work-image-wrap">
+                    <img src="${work.image}" alt="${escapeHtml(work.title)}" loading="lazy">
+                  </div>` : ''}
+                <div class="work-content">
+                  <h3 class="work-title">${escapeHtml(work.title)}</h3>
+                  <p class="work-comment">${escapeHtml(work.comment)}</p>
+                  ${work.tags && work.tags.length > 0 ? `
+                    <div class="work-tags">
+                      ${work.tags.map(t => `<span class="work-tag">${escapeHtml(t)}</span>`).join('')}
+                    </div>` : ''}
+                  <div class="work-links">
+                    ${work.web ? `<a href="${work.web}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">サイトを見る ↗</a>` : ''}
+                    ${work.admin ? `<a href="${work.admin}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">管理画面 ↗</a>` : ''}
+                    ${work.github ? `<a href="${work.github}" target="_blank" rel="noopener noreferrer" class="btn btn-outline">GitHub ↗</a>` : ''}
+                  </div>
+                </div>
+              </div>`;
+          });
+
+          html += `</div>`;
+
+          if (bannerMap['Works']) {
+            html += `
+              <div class="section-divider-banner">
+                <img src="${bannerMap['Works']}" alt="Works Banner" loading="lazy">
+              </div>`;
+          }
+
+          html += `</div></section>`;
+        }
+
+        // ------------------ (4) Strengths ------------------
+        if (data.Strengths && data.Strengths.length > 0) {
+          html += `
+          <section id="strengths" class="section-wrapper">
+            <div class="section-card">
+              <div class="section-header">
+                <span class="section-tag">Value & Approach</span>
+                <h2 class="section-title">Strengths</h2>
+              </div>
+              <div class="strengths-grid">`;
+
+          data.Strengths.forEach((st, idx) => {
+            html += `
+              <div class="strength-card">
+                <span class="strength-num">Strength 0${idx + 1}</span>
+                <h3 class="strength-summary">${escapeHtml(st.summary)}</h3>
+                <p class="strength-detail">${escapeHtml(st.detail)}</p>
+              </div>`;
+          });
+
+          html += `</div>`;
+
+          if (bannerMap['Strengths']) {
+            html += `
+              <div class="section-divider-banner">
+                <img src="${bannerMap['Strengths']}" alt="Strengths Banner" loading="lazy">
+              </div>`;
+          }
+
+          html += `</div></section>`;
+        }
+
+        // ------------------ (5) Contact ------------------
+        if (data.Contact && data.Contact.length > 0) {
+          html += `
+          <section id="contact" class="section-wrapper">
+            <div class="section-card">
+              <div class="section-header">
+                <span class="section-tag">Get in touch</span>
+                <h2 class="section-title">Contact</h2>
+              </div>
+              <div class="contact-list">`;
+
+          data.Contact.forEach(ct => {
+            const isEmail = ct.value.includes('@') && !ct.value.startsWith('http');
+            const href = isEmail ? `mailto:${ct.value}` : ct.value;
+            const iconText = ct.item.charAt(0);
+
+            html += `
+              <a href="${href}" target="_blank" rel="noopener noreferrer" class="contact-card">
+                <div class="contact-icon">${escapeHtml(iconText)}</div>
+                <div class="contact-meta">
+                  <span class="contact-item-name">${escapeHtml(ct.item)}</span>
+                  <span class="contact-item-value">${escapeHtml(ct.value)}</span>
+                </div>
+              </a>`;
+          });
+
+          html += `</div></div></section>`;
+        }
+
+        app.innerHTML = html;
+
+      } catch (err) {
+        console.error(err);
+        app.innerHTML = `
+          <div class="status-msg" style="color: #f87171;">
+            データの読み込みに失敗しました。<br>
+            <span style="font-size:0.9rem; color:var(--text-dim);">${escapeHtml(err.message)}</span>
+          </div>`;
+      }
+    }
+
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    loadPortfolio();
+  </script>
 </body>
 </html>
