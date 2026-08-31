@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <meta name="description" content="UI設計・フロントエンド実装・AI駆動開発・低コストDX推進のポートフォリオ">
+  
+  <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@600;700;800&family=Outfit:wght@600;700;800&family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
       --primary-color: #0284c7;
@@ -17,7 +21,7 @@
       --text-body: #334155;
       --text-muted: #64748b;
       --tag-bg: #e2e8f0;
-      --tag-text: #334155;
+      --tag-text: #475569;
       --tag-border: #cbd5e1;
       --btn-bg: #ffffff;
       --btn-border: #cbd5e1;
@@ -33,11 +37,9 @@
 
     html {
       scroll-behavior: smooth;
-      overflow-x: hidden;
     }
 
     body {
-      /* フォントの滑らかさ・輪郭補正 */
       font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -49,7 +51,6 @@
       background-position: center top;
       background-attachment: fixed;
       background-repeat: no-repeat;
-      overflow-x: hidden;
     }
 
     /* ---------------- 上部固定ヘッダー ---------------- */
@@ -62,12 +63,12 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(226, 232, 240, 0.85);
-      z-index: 1000;
+      z-index: 10000;
       padding: 14px 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
     }
 
     .header-logo {
@@ -82,7 +83,7 @@
     .header-nav {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 18px;
     }
 
     .header-nav a {
@@ -133,7 +134,7 @@
     /* セクション共通 */
     .section-wrapper {
       margin-bottom: 70px;
-      scroll-margin-top: 80px; /* 固定ヘッダー分のオフセット */
+      scroll-margin-top: 85px; /* 固定ヘッダー分の余白 */
     }
     .section-header {
       margin-bottom: 24px;
@@ -316,59 +317,65 @@
       white-space: pre-wrap;
       line-height: 1.8;
     }
+
+    /* 技術タグ（平坦な情報表示） */
     .work-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
     }
     .work-tag {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      padding: 3px 12px;
-      border-radius: 9999px;
-      background: var(--tag-bg);
-      border: 1px solid var(--tag-border);
+      padding: 2px 10px;
+      border-radius: 6px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
       color: var(--tag-text);
+      letter-spacing: 0.02em;
     }
+
+    /* 遷移ボタン群（タグと明確に差別化された立体的なボタンスタイル） */
     .work-btn-group {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 4px;
+      margin-top: 6px;
     }
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.92rem;
-      font-weight: 700;
-      padding: 9px 22px;
-      border-radius: 9999px;
+      gap: 8px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      padding: 10px 22px;
+      border-radius: 30px;
       text-decoration: none;
-      transition: all 0.25s ease;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
     }
     .btn-main {
-      background: var(--primary-color);
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+      border: 1.5px solid transparent;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
     }
     .btn-main:hover {
-      background: var(--primary-dark);
       transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
     }
     .btn-sub {
-      background: var(--btn-bg);
-      border: 1px solid var(--btn-border);
-      color: var(--text-body);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      background: #ffffff;
+      border: 1.5px solid #94a3b8;
+      color: var(--text-main);
     }
     .btn-sub:hover {
-      background: #f1f5f9;
-      border-color: #94a3b8;
-      color: var(--text-main);
+      background: #f8fafc;
+      border-color: var(--primary-color);
+      color: var(--primary-color);
       transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
     }
 
     /* ---------------- Strengths ---------------- */
@@ -402,39 +409,119 @@
       line-height: 1.8;
     }
 
-    /* ---------------- Contact ---------------- */
-    .contact-links {
+    /* ---------------- Contact（専用ボタンスタイル） ---------------- */
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-top: 10px;
+    }
+    .contact-buttons-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 16px;
-      margin-top: 10px;
+      width: 100%;
     }
-    .contact-btn {
+
+    /* メールボタン（画像3枚目風） */
+    .btn-contact-mail {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
+      padding: 12px 36px;
+      border-radius: 9999px;
+      background: #5b4be2;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(91, 75, 226, 0.35);
+      transition: all 0.2s ease;
+      letter-spacing: 0.03em;
+    }
+    .btn-contact-mail:hover {
+      background: #4a3ac9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(91, 75, 226, 0.45);
+    }
+    .btn-contact-mail i {
+      font-size: 1.15rem;
+    }
+
+    /* Xボタン（画像4枚目風） */
+    .btn-contact-x {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 32px;
+      border-radius: 9999px;
+      background: #18181b;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.02rem;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease;
+      letter-spacing: 0.03em;
+    }
+    .btn-contact-x:hover {
+      background: #000000;
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+    .btn-contact-x i {
+      font-size: 1.15rem;
+    }
+
+    /* 汎用リンクボタン */
+    .btn-contact-general {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       padding: 12px 28px;
       border-radius: 9999px;
       background: #ffffff;
-      border: 1px solid var(--btn-border);
       color: var(--text-main);
-      text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 0.98rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-      transition: all 0.25s ease;
+      text-decoration: none;
+      border: 1.5px solid var(--btn-border);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+      transition: all 0.2s ease;
     }
-    .contact-btn:hover {
-      background: var(--primary-light);
+    .btn-contact-general:hover {
       border-color: var(--primary-color);
-      color: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.15);
-    }
-    .contact-btn-tag {
       color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* メール下部のアドレス案内テキスト */
+    .contact-email-fallback {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: -6px;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 4px 16px;
+      border-radius: 20px;
+      border: 1px dashed #cbd5e1;
+    }
+    .contact-email-fallback span {
+      color: var(--primary-dark);
       font-family: 'Poppins', sans-serif;
+      margin-left: 4px;
+      user-select: all;
     }
 
     /* フッター */
@@ -472,9 +559,8 @@
       .section-title {
         font-size: 1.6rem;
       }
-      .contact-btn {
+      .btn-contact-mail, .btn-contact-x, .btn-contact-general {
         width: 100%;
-        justify-content: center;
       }
     }
   </style>
@@ -641,9 +727,9 @@
                     ${work.tags.map(t => `<span class="work-tag">${escapeHtml(t)}</span>`).join('')}
                   </div>` : ''}
                 <div class="work-btn-group">
-                  ${work.web ? `<a href="${work.web}" target="_blank" rel="noopener noreferrer" class="btn btn-main">Webサイトを見る ↗</a>` : ''}
-                  ${work.admin ? `<a href="${work.admin}" target="_blank" rel="noopener noreferrer" class="btn btn-sub">管理画面 ↗</a>` : ''}
-                  ${work.github ? `<a href="${work.github}" target="_blank" rel="noopener noreferrer" class="btn btn-sub">GitHub ↗</a>` : ''}
+                  ${work.web ? `<a href="${work.web}" target="_blank" rel="noopener noreferrer" class="btn btn-main"><i class="fa-solid fa-arrow-up-right-from-square"></i> Webサイトを見る</a>` : ''}
+                  ${work.admin ? `<a href="${work.admin}" target="_blank" rel="noopener noreferrer" class="btn btn-sub"><i class="fa-solid fa-sliders"></i> 管理画面</a>` : ''}
+                  ${work.github ? `<a href="${work.github}" target="_blank" rel="noopener noreferrer" class="btn btn-sub"><i class="fa-brands fa-github"></i> GitHub</a>` : ''}
                 </div>
               </div>`;
           });
@@ -698,18 +784,46 @@
               <span class="section-tag">Get in touch</span>
               <h2 class="section-title">Contact</h2>
             </div>
-            <div class="contact-links">`;
+            <div class="contact-container">
+              <div class="contact-buttons-row">`;
+
+          let emailFallbackAddress = '';
 
           data.Contact.forEach(ct => {
-            const isEmail = ct.value.includes('@') && !ct.value.startsWith('http');
-            const href = isEmail ? `mailto:${ct.value}` : ct.value;
+            const rawType = String(ct.type || ct.item || '').trim().toLowerCase();
+            const val = String(ct.value || '').trim();
+            const itemLabel = String(ct.item || '').trim();
 
-            html += `
-              <a href="${href}" target="_blank" rel="noopener noreferrer" class="contact-btn">
-                <span class="contact-btn-tag">${escapeHtml(ct.item)}:</span>
-                <span>${escapeHtml(ct.value)}</span>
-              </a>`;
+            if (rawType.includes('メール') || rawType === 'mail' || rawType === 'email') {
+              emailFallbackAddress = val;
+              html += `
+                <a href="mailto:${val}" class="btn-contact-mail">
+                  <i class="fa-solid fa-envelope"></i> お問い合わせ
+                </a>`;
+            } else if (rawType.includes('x') || rawType.includes('twitter')) {
+              const labelText = itemLabel ? `${itemLabel}へ移動` : 'Xへ移動';
+              html += `
+                <a href="${val}" target="_blank" rel="noopener noreferrer" class="btn-contact-x">
+                  <i class="fa-brands fa-x-twitter"></i> ${escapeHtml(labelText)}
+                </a>`;
+            } else {
+              const isHttp = val.startsWith('http');
+              const targetAttr = isHttp ? 'target="_blank" rel="noopener noreferrer"' : '';
+              html += `
+                <a href="${val}" ${targetAttr} class="btn-contact-general">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> ${escapeHtml(itemLabel || 'リンクへ移動')}
+                </a>`;
+            }
           });
+
+          html += `</div>`;
+
+          if (emailFallbackAddress) {
+            html += `
+              <div class="contact-email-fallback">
+                メールが開けない場合こちらのアドレスまで：<span>${escapeHtml(emailFallbackAddress)}</span>
+              </div>`;
+          }
 
           html += `</div></section>`;
         }
