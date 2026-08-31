@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T12:38:10.332Z",
+  "updatedAt": "2026-08-31T13:47:18.216Z",
   "asset": [
     {
       "id": 1,
@@ -138,7 +138,7 @@
     {
       "id": 1,
       "title": "アプリゲーム 非公式攻略データベース",
-      "comment": "リアルタイム検索、多軸フィルター、モーダル詳細表示など大量データをスムーズに閲覧でき、\n確率計算ロジック、カード演出、履歴・コレクション管理機能を備えたポータルサイトです。",
+      "comment": "”ファン開発プロジェクトとして制作した非公式ポータルサイトです。”\nリアルタイム検索、多軸フィルター、モーダル詳細表示など大量データをスムーズに閲覧でき、\n確率計算ロジック、カード演出、履歴・コレクション管理機能を備えたポータルサイトです。",
       "images": [
         "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-1.jpg",
         "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web1_image-2.jpg",
@@ -160,7 +160,9 @@
         "GitHub pages",
         "レスポンシブ",
         "UI/UX",
-        "データバインディング"
+        "データバインディング",
+        "ファン開発",
+        "二次創作"
       ]
     },
     {
