@@ -1,0 +1,159 @@
+asset:
+    title: "アセット"
+    headerRow: 2
+    dataStartRow: 3
+    columns:
+        id:
+            label: "管理番号"
+            type: number
+            required: true
+        title:
+            label: "アセット名"
+            type: string
+            required: true
+        type:
+            label: "アセット種類"
+            type: select
+            options:
+                - background
+                - banner
+                - icon
+                - ui/ux
+            optionLabels:
+                - "背景"
+                - "バナー"
+                - "アイコン"
+                - "ボタンUI"
+            required: true
+        image:
+            label: "画像URL"
+            type: url
+            uploadPath: assets
+            required: true
+
+About:
+    title: "自己紹介"
+    headerRow: 2
+    dataStartRow: 3
+    columns:
+        id:
+            label: "管理番号"
+            type: number
+            required: true
+        summary:
+            label: "要約"
+            type: string
+            required: false
+        paragraph:
+            label: "詳細/説明を段落表示にするかしないか"
+            type: boolean
+            required: true
+            default: false
+        detail:
+            label: "詳細/説明"
+            type: text
+            required: true
+
+TechStack:
+    title: "スキル/技術"
+    headerRow: 2
+    dataStartRow: 3
+    columns:
+        id:
+            label: "管理番号"
+            type: number
+            required: true
+        technology:
+            label: "スキル/技術説明"
+            type: string
+            required: true
+        skills:
+            type: array
+            description: "スキル・対応項目のリスト"
+            items:
+                type: object
+                properties:
+                    system:
+                        type: string
+                        description: "技術名・システム名（空文字許容）"
+                        default: ""
+                    explanation:
+                        type: string
+                        description: "詳細・解説テキスト"
+                required:
+                    - explanation
+
+Works:
+    title: "実績"
+    headerRow: 2
+    dataStartRow: 3
+    columns:
+        id:
+            label: "管理番号"
+            type: number
+            required: true
+        title:
+            label: "タイトル"
+            type: string
+            required: true
+        comment:
+            label: "説明"
+            type: text
+            required: true
+        image:
+            label: "イメージ画像"
+            type: url
+            uploadPath: assets
+            required: false
+        web:
+            label: "実績のサイトや動画URL"
+            type: url
+            required: true
+        admin:
+            label: "管理サイトやツールのURL"
+            type: url
+            required: false
+        github:
+            label: "リポジトリやオープンソースのURL"
+            type: url
+            required: false
+        tags:
+            type: array
+            description: "使用技術やツール"
+            items:
+                type: string
+                description: "使用技術やツールの名称"
+
+Strengths:
+    title: "開発のスタンス・強み"
+    headerRow: 2
+    dataStartRow: 3
+    columns:
+        id:
+            label: "管理番号"
+            type: number
+            required: true
+        summary:
+            label: "要約"
+            type: string
+            required: true
+        detail:
+            label: "説明"
+            type: text
+            required: true
+
+Contact:
+    title: "連絡先・SNS"
+    headerRow: 2
+    dataStartRow: 3
+    columns:
+        item:
+            label: "名称"
+            type: string
+            required: true
+        value:
+            label: "メールアドレスやSNSのURL"
+            type: string
+            required: true
+
+
