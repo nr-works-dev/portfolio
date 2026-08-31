@@ -151,9 +151,31 @@ Contact:
             label: "名称"
             type: string
             required: true
+        type:
+            label: "Contact種類"
+            options:
+                - mail
+                - externalLink
+                - designLink
+            optionLabels:
+                - "メール"
+                - "外部リンク"
+                - "デザインリンク"
+            required: true
+        image:
+            label: "ボタンUI"
+            type: url
+            uploadPath: assets
+            required: false
         value:
             label: "メールアドレスやSNSのURL"
             type: string
             required: true
-
-
+        mail_title:
+            label: "メール件名　※type：メールの場合使用"
+            type: string
+            required: false
+        mail_text:
+            label: "メール本文　※type：メールの場合使用"
+            type: text
+            required: false
