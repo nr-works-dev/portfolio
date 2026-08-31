@@ -207,22 +207,27 @@
       background: linear-gradient(90deg, #cbd5e1 0%, transparent 100%);
     }
 
-    /* セクション下部バナー */
+    /* セクション下部バナー（画面端から端までの全幅表示） */
     .section-divider-banner {
-      width: 100%;
-      max-width: 100%;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
       margin-top: 50px;
       margin-bottom: 20px;
       line-height: 0;
       overflow: hidden;
-      border-radius: 12px;
     }
+
     .section-divider-banner img {
       width: 100%;
       height: auto;
       display: block;
       box-shadow: none;
       border: none;
+      border-radius: 0;
       outline: none;
     }
 
