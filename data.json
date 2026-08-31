@@ -1,0 +1,208 @@
+{
+  "updatedAt": "2026-08-31T09:56:31.078Z",
+  "asset": [
+    {
+      "id": 1,
+      "title": "ページ背景",
+      "type": "background",
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/background.jpg"
+    },
+    {
+      "id": 2,
+      "title": "About",
+      "type": "banner",
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/banner_About.png"
+    },
+    {
+      "id": 3,
+      "title": "TechStack",
+      "type": "banner",
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/banner_TechStack.png"
+    },
+    {
+      "id": 4,
+      "title": "Works",
+      "type": "banner",
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/banner_Works.png"
+    },
+    {
+      "id": 5,
+      "title": "Strengths",
+      "type": "banner",
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/banner_Strengths.png"
+    }
+  ],
+  "About": [
+    {
+      "id": 1,
+      "summary": "UI設計 / フロントエンド実装 / 業務効率化・DX推進",
+      "paragraph": false,
+      "detail": "企画・要件定義からUIデザイン、生成AIを活用した迅速なプロトタイピング、GAS連携による業務ツールの構築まで一貫して対応可能です。"
+    },
+    {
+      "id": 2,
+      "summary": "UI/UX設計:",
+      "paragraph": true,
+      "detail": "ボタンやネームプレート等のUIパーツ自作から画面設計まで手がけ、直感的に操作できる分かりやすい画面を具現化します。"
+    },
+    {
+      "id": 3,
+      "summary": "AI駆動開発による高速プロトタイピング:",
+      "paragraph": true,
+      "detail": "データ構造や通信フローの設計を主導し、AIを的確にハンドリングして短期間で実動ツール・モックアップを形にします。"
+    },
+    {
+      "id": 4,
+      "summary": "低コストなシステム構築:",
+      "paragraph": true,
+      "detail": "GoogleスプレッドシートやGAS、GitHub Pagesを組み合わせ、外部サーバー費用をかけずに使いやすいデータ管理・自動化基盤を構築します。"
+    },
+    {
+      "id": 5,
+      "summary": "",
+      "paragraph": false,
+      "detail": "「コストを抑えつつ、課題・要件に沿ったものを動く形にして解決すること」を重視して取り組んでいます。"
+    }
+  ],
+  "TechStack": [
+    {
+      "id": 1,
+      "technology": "System Design & Direction（要件定義・設計）:",
+      "skills": [
+        {
+          "system": "",
+          "explanation": "要件定義、UI/UXワイヤーフレーム設計、データ構造設計（JSON / スプレッドシートDB）"
+        },
+        {
+          "system": "",
+          "explanation": "外部API連携設計（GASエンドポイント設計、Fetch通信仕様、Web Intent連携）"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "technology": "AI-Assisted Development（AI駆動開発・実装）:",
+      "skills": [
+        {
+          "system": "",
+          "explanation": "LLM（ChatGPT / Gemini等）を活用したプロンプトエンジニアリングによるコード生成・リファクタリング"
+        },
+        {
+          "system": "",
+          "explanation": "生成コードのロジック検証、エラーハンドリング、ブラウザ動作デバッグ"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "technology": "UI / Visual Design（UIデザイン・グラフィック制作）:",
+      "skills": [
+        {
+          "system": "",
+          "explanation": "UIパーツ制作（ネームプレート、ボタン、バッジ、アイコン等のデザイン）"
+        },
+        {
+          "system": "",
+          "explanation": "世界観・ブランドに合わせたカラーパレット選定、視覚的ヒエラルキーの設計"
+        },
+        {
+          "system": "",
+          "explanation": "使用ツール：デザイン・イラスト制作ソフト（ClipStudioPro）"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "technology": "Frontend & Backend Technologies（仕様理解・ハンドリング技術）:",
+      "skills": [
+        {
+          "system": "HTML5 / CSS3",
+          "explanation": "レスポンシブレイアウト設計、アニメーション調整、UIスタイリング"
+        },
+        {
+          "system": "JavaScript (Vanilla JS)",
+          "explanation": "状態管理、非同期通信、アルゴリズム・確率計算ロジックの動作検証と統合"
+        },
+        {
+          "system": "GAS / Google Sheets",
+          "explanation": "ヘッドレスCMS構成、データ配信自動化"
+        },
+        {
+          "system": "GitHub / GitHub Pages",
+          "explanation": "リポジトリ管理、デプロイ、バージョン管理"
+        }
+      ]
+    }
+  ],
+  "Works": [
+    {
+      "id": 1,
+      "title": "アプリゲーム 非公式攻略データベース",
+      "comment": "リアルタイム検索、多軸フィルター、モーダル詳細表示など大量データをスムーズに閲覧でき、\n確率計算ロジック、カード演出、履歴・コレクション管理機能を備えたポータルサイトです。",
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web_image_1.jpg",
+      "web": "https://holodrea-wiki.github.io/holodreams-member/index.html",
+      "admin": "",
+      "github": "https://github.com/websample2000-ops/websample",
+      "tags": [
+        "HTML/CSS",
+        "JavaScript",
+        "Google Apps Script",
+        "GitHub pages",
+        "レスポンシブ",
+        "UI/UX",
+        "データバインディング"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "活動者向け公式HP（専用管理画面付き）",
+      "comment": "GitHub Pagesを活用し維持費0円で運用可能。スプレッドシート連動の専用管理画面からスマホで簡単に更新できます。",
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web_image_2.jpg",
+      "web": "https://websample2000-ops.github.io/websample/",
+      "admin": "https://websample2000-ops.github.io/websample/admin.html",
+      "github": "https://github.com/websample2000-ops/websample",
+      "tags": [
+        "HTML/CSS",
+        "JavaScript",
+        "Google Apps Script",
+        "GitHub pages",
+        "レスポンシブ",
+        "UI/UX",
+        "LP",
+        "管理画面"
+      ]
+    }
+  ],
+  "Strengths": [
+    {
+      "id": 1,
+      "summary": "UIデザインからフロントエンド実装までのワンストップ開発",
+      "detail": "ネームプレートやボタン等のUIパーツ自作を含むデザイン設計からフロントエンド実装までを一貫して手がけることで、世界観と操作性（UX）を両立させたWeb画面を最短距離で具現化できます。"
+    },
+    {
+      "id": 2,
+      "summary": "生成AIを活用した超高速なプロトタイピング（AI駆動開発）",
+      "detail": "データ構造や通信フローの設計を自ら主導し、生成AIを的確にハンドリングして検証を行うことで、アイデアを通常の数倍のスピードで動くシステムとして形にできます。"
+    },
+    {
+      "id": 3,
+      "summary": "コスト0円で運用可能なヘッドレスCMS設計",
+      "detail": "GitHub Pages、GAS、スプレッドシートを組み合わせた独自構成の構築を通じて、サーバー代などの維持費をかけずに、非エンジニアでも簡単に更新・運用できるシステムを設計できます。"
+    },
+    {
+      "id": 4,
+      "summary": "UX最適化とコンプライアンスに配慮した機能実装",
+      "detail": "確率計算ロジック、SNS自動シェア、定型文自動入力付きの問い合わせフォーム等の実装を通じて、利用者の負担を軽減する優れたUX設計と、ガイドラインに準拠した安全なシステムを提供できます。"
+    }
+  ],
+  "Contact": [
+    {
+      "item": "メールアドレス",
+      "value": "urukanero.works@gmail.com"
+    },
+    {
+      "item": "Ｘ",
+      "value": "https://x.com/urukanero_works"
+    }
+  ]
+}
