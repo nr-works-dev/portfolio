@@ -294,18 +294,97 @@
       flex-direction: column;
       gap: 16px;
     }
-    .work-thumb-wrap {
+
+    /* Works カルーセルスライダー */
+    .works-slider-container {
+      position: relative;
       width: 100%;
+      margin-bottom: 4px;
+    }
+    .works-track {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 6px 4px 14px 4px;
+      width: 100%;
+      touch-action: pan-x;
+      cursor: grab;
+      user-select: none;
+    }
+    .works-track.is-dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
+    }
+    /* カスタムスクロールバー */
+    .works-track::-webkit-scrollbar {
+      height: 6px;
+    }
+    .works-track::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 4px;
+    }
+    .works-track::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+    .works-track::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    .work-slide-card {
+      flex: 0 0 calc((100% - 28px) / 3); /* PC表示で約3枚並ぶ設計 */
+      min-width: 240px;
+      max-width: 290px;
+      aspect-ratio: 16 / 9;
       border-radius: 12px;
       overflow: hidden;
       border: 1px solid #cbd5e1;
+      background: #0f172a;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
-    .work-thumb-wrap img {
+    .work-slide-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    }
+    .work-slide-card img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
       pointer-events: none;
     }
+
+    .works-nav-btn {
+      position: absolute;
+      top: calc(50% - 10px);
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      cursor: pointer;
+      z-index: 10;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #00158f;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    .works-nav-btn:hover {
+      background: #ffffff;
+      color: var(--primary-color);
+      transform: translateY(-50%) scale(1.08);
+    }
+    .works-nav-prev { left: -16px; }
+    .works-nav-next { right: -16px; }
+
     .work-info-title {
       font-size: 1.35rem;
       font-weight: 800;
@@ -363,7 +442,6 @@
       box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
     }
 
-    /* 管理画面・GitHub用の黒調ボタン */
     .btn-dark {
       background: #18181b;
       color: #ffffff;
@@ -449,9 +527,6 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(91, 75, 226, 0.45);
     }
-    .btn-contact-mail i {
-      font-size: 1.15rem;
-    }
 
     /* Xボタン（ダークピル型） */
     .btn-contact-x {
@@ -478,8 +553,30 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
     }
-    .btn-contact-x i {
-      font-size: 1.15rem;
+
+    /* 外部リンクボタン（画像2枚目準拠のブルーピル型） */
+    .btn-contact-external {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 32px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.02rem;
+      text-decoration: none;
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+      transition: all 0.2s ease;
+      letter-spacing: 0.03em;
+    }
+    .btn-contact-external:hover {
+      background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
     }
 
     /* 汎用リンクボタン */
@@ -505,7 +602,7 @@
       transform: translateY(-2px);
     }
 
-    /* メーラー起動不可時のフォールバック案内文 */
+    /* メーラー起動案内 */
     .contact-email-fallback {
       font-size: 0.9rem;
       font-weight: 700;
@@ -522,6 +619,34 @@
       font-family: 'Poppins', sans-serif;
       margin-left: 4px;
       user-select: all;
+    }
+
+    /* プレビューモーダル */
+    #image-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(8px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+      z-index: 99999;
+      padding: 24px;
+      cursor: pointer;
+    }
+    #image-modal.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    #image-modal img {
+      max-width: 92%;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      object-fit: contain;
     }
 
     /* フッター */
@@ -559,7 +684,13 @@
       .section-title {
         font-size: 1.6rem;
       }
-      .btn-contact-mail, .btn-contact-x, .btn-contact-general {
+      .work-slide-card {
+        flex: 0 0 75%;
+        min-width: 220px;
+      }
+      .works-nav-prev { left: -8px; }
+      .works-nav-next { right: -8px; }
+      .btn-contact-mail, .btn-contact-x, .btn-contact-external, .btn-contact-general {
         width: 100%;
       }
     }
@@ -594,8 +725,24 @@
     </footer>
   </div>
 
+  <!-- 画像拡大モーダル -->
+  <div id="image-modal" onclick="closeImageModal()">
+    <img id="modal-target-img" src="" alt="Work Preview">
+  </div>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function openImageModal(src) {
+      const modal = document.getElementById('image-modal');
+      const img = document.getElementById('modal-target-img');
+      img.src = src;
+      modal.classList.add('show');
+    }
+
+    function closeImageModal() {
+      document.getElementById('image-modal').classList.remove('show');
+    }
 
     async function loadPortfolio() {
       const app = document.getElementById('app');
@@ -703,7 +850,7 @@
           html += `</section>`;
         }
 
-        // ------------------ (3) Works ------------------
+        // ------------------ (3) Works（複数画像スライダー） ------------------
         if (data.Works && data.Works.length > 0) {
           html += `
           <section id="works" class="section-wrapper">
@@ -713,19 +860,39 @@
             </div>
             <div class="works-list">`;
 
-          data.Works.forEach(work => {
+          data.Works.forEach((work, wIdx) => {
+            // 画像リストの構築 (images配列優先、無ければ単一image/imagesプロパティ)
+            let imgList = [];
+            if (Array.isArray(work.images) && work.images.length > 0) {
+              imgList = work.images.filter(img => img && String(img).trim() !== '');
+            } else if (work.image && String(work.image).trim() !== '') {
+              imgList = [work.image];
+            }
+
             html += `
               <div class="work-entry">
-                ${work.image ? `
-                  <div class="work-thumb-wrap">
-                    <img src="${work.image}" alt="${escapeHtml(work.title)}" loading="lazy">
-                  </div>` : ''}
+                ${imgList.length > 0 ? `
+                  <div class="works-slider-container" id="slider-container-${wIdx}">
+                    <button class="works-nav-btn works-nav-prev" id="prev-btn-${wIdx}" style="display:none;"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div class="works-track" id="track-${wIdx}">
+                      ${imgList.map(imgSrc => `
+                        <div class="work-slide-card" onclick="openImageModal('${imgSrc}')">
+                          <img src="${imgSrc}" alt="${escapeHtml(work.title)}" loading="lazy">
+                        </div>
+                      `).join('')}
+                    </div>
+                    <button class="works-nav-btn works-nav-next" id="next-btn-${wIdx}" style="display:none;"><i class="fa-solid fa-chevron-right"></i></button>
+                  </div>
+                ` : ''}
+
                 <div class="work-info-title">${escapeHtml(work.title)}</div>
                 <div class="work-info-comment">${escapeHtml(work.comment)}</div>
+                
                 ${work.tags && work.tags.length > 0 ? `
                   <div class="work-tags">
                     ${work.tags.map(t => `<span class="work-tag">${escapeHtml(t)}</span>`).join('')}
                   </div>` : ''}
+                
                 <div class="work-btn-group">
                   ${work.web ? `<a href="${work.web}" target="_blank" rel="noopener noreferrer" class="btn btn-main"><i class="fa-solid fa-arrow-up-right-from-square"></i> Webサイトを見る</a>` : ''}
                   ${work.admin ? `<a href="${work.admin}" target="_blank" rel="noopener noreferrer" class="btn btn-dark"><i class="fa-solid fa-sliders"></i> 管理画面</a>` : ''}
@@ -790,13 +957,13 @@
           let emailFallbackAddress = '';
 
           data.Contact.forEach(ct => {
-            const rawType = String(ct.type || ct.item || '').trim();
+            const rawType = String(ct.type || '').trim();
             const val = String(ct.value || '').trim();
             const itemLabel = String(ct.item || '').trim();
-            const titleVal = ct.mail_title || ct.title_value || '';
-            const textVal = ct.mail_text || ct.text_value || '';
+            const titleVal = ct.mail_title || '';
+            const textVal = ct.mail_text || '';
 
-            // type: mail の場合
+            // 1. type: mail の場合
             if (rawType.toLowerCase() === 'mail' || rawType === 'メール') {
               emailFallbackAddress = val;
               const subjectParam = titleVal ? `?subject=${encodeURIComponent(titleVal)}` : '';
@@ -808,7 +975,7 @@
                   <i class="fa-solid fa-envelope"></i> お問い合わせ
                 </a>`;
 
-            // type: XLink の場合
+            // 2. type: XLink の場合
             } else if (rawType === 'XLink' || rawType.toLowerCase() === 'xlink' || rawType.toLowerCase().includes('x')) {
               const displayLabel = itemLabel ? `𝕏 ${itemLabel}` : '𝕏 X';
               html += `
@@ -816,7 +983,15 @@
                   ${escapeHtml(displayLabel)}
                 </a>`;
 
-            // その他のリンク
+            // 3. type: externalLink の場合（画像2枚目準拠のブルーピル型ボタン）
+            } else if (rawType === 'externalLink' || rawType.toLowerCase() === 'externallink') {
+              const displayLabel = itemLabel ? `${itemLabel}` : 'Webサイトを見る';
+              html += `
+                <a href="${val}" target="_blank" rel="noopener noreferrer" class="btn-contact-external">
+                  <i class="fa-solid fa-arrow-up-right-from-square"></i> ${escapeHtml(displayLabel)}
+                </a>`;
+
+            // 4. その他のリンク
             } else {
               const isHttp = val.startsWith('http');
               const targetAttr = isHttp ? 'target="_blank" rel="noopener noreferrer"' : '';
@@ -842,6 +1017,9 @@
 
         app.innerHTML = html;
 
+        // Works スライダーのイベントバインド
+        initWorksSliders(data.Works || []);
+
       } catch (err) {
         console.error(err);
         app.innerHTML = `
@@ -850,6 +1028,77 @@
             <span style="font-size:0.9rem;">${escapeHtml(err.message)}</span>
           </div>`;
       }
+    }
+
+    // Works スライダーの操作ロジック
+    function initWorksSliders(worksList) {
+      worksList.forEach((_, wIdx) => {
+        const track = document.getElementById(`track-${wIdx}`);
+        const prevBtn = document.getElementById(`prev-btn-${wIdx}`);
+        const nextBtn = document.getElementById(`next-btn-${wIdx}`);
+        if (!track || !prevBtn || !nextBtn) return;
+
+        prevBtn.onclick = () => track.scrollBy({ left: -280, behavior: 'smooth' });
+        nextBtn.onclick = () => track.scrollBy({ left: 280, behavior: 'smooth' });
+
+        // マウスドラッグ対応
+        let isDown = false;
+        let startX = 0;
+        let scrollLeftPos = 0;
+        let isDraggingMoved = false;
+
+        track.addEventListener('mousedown', (e) => {
+          isDown = true;
+          isDraggingMoved = false;
+          track.classList.add('is-dragging');
+          startX = e.pageX - track.offsetLeft;
+          scrollLeftPos = track.scrollLeft;
+        });
+
+        window.addEventListener('mouseup', () => {
+          if (isDown) {
+            isDown = false;
+            track.classList.remove('is-dragging');
+          }
+        });
+
+        track.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - track.offsetLeft;
+          const walk = (x - startX) * 1.5;
+          if (Math.abs(walk) > 5) isDraggingMoved = true;
+          track.scrollLeft = scrollLeftPos - walk;
+        });
+
+        // ホイールスクロール対応
+        track.addEventListener('wheel', (e) => {
+          if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+            track.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+
+        // ナビボタンの表示・透過制御
+        const updateNavButtons = () => {
+          const maxScrollLeft = track.scrollWidth - track.clientWidth;
+          if (maxScrollLeft <= 4) {
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+            return;
+          }
+          prevBtn.style.display = 'flex';
+          nextBtn.style.display = 'flex';
+          prevBtn.style.opacity = track.scrollLeft <= 5 ? '0.3' : '1';
+          prevBtn.style.pointerEvents = track.scrollLeft <= 5 ? 'none' : 'auto';
+          nextBtn.style.opacity = track.scrollLeft >= maxScrollLeft - 5 ? '0.3' : '1';
+          nextBtn.style.pointerEvents = track.scrollLeft >= maxScrollLeft - 5 ? 'none' : 'auto';
+        };
+
+        track.addEventListener('scroll', updateNavButtons);
+        setTimeout(updateNavButtons, 60);
+        window.addEventListener('resize', updateNavButtons);
+      });
     }
 
     function escapeHtml(str) {
