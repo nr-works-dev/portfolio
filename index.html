@@ -665,6 +665,14 @@
     }
 
     @media (max-width: 768px) {
+      /* ★ スマホ時の背景画像リサイズ設定を追加 */
+      body {
+        background-size: 100% auto;      /* 画面幅に合わせて横幅ぴったりにリサイズ */
+        background-attachment: scroll;    /* fixedによる巨大化バグを解除 */
+        background-repeat: repeat-y;      /* 縦スクロールに合わせて自然にリピート */
+        background-position: center top;
+      }
+
       .site-header {
         padding: 12px 18px;
       }
