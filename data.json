@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T12:02:55.668Z",
+  "updatedAt": "2026-08-31T12:31:06.055Z",
   "asset": [
     {
       "id": 1,
@@ -139,7 +139,7 @@
       "id": 1,
       "title": "アプリゲーム 非公式攻略データベース",
       "comment": "リアルタイム検索、多軸フィルター、モーダル詳細表示など大量データをスムーズに閲覧でき、\n確率計算ロジック、カード演出、履歴・コレクション管理機能を備えたポータルサイトです。",
-      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web_image_1.jpg",
+      "image": "",
       "web": "https://holodrea-wiki.github.io/holodreams-member/index.html",
       "admin": "",
       "github": "https://github.com/websample2000-ops/websample",
@@ -157,7 +157,7 @@
       "id": 2,
       "title": "活動者向け公式HP（専用管理画面付き）",
       "comment": "GitHub Pagesを活用し維持費0円で運用可能。スプレッドシート連動の専用管理画面からスマホで簡単に更新できます。",
-      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web_image_2.jpg",
+      "image": "",
       "web": "https://websample2000-ops.github.io/websample/",
       "admin": "https://websample2000-ops.github.io/websample/admin.html",
       "github": "https://github.com/websample2000-ops/websample",
