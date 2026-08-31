@@ -957,14 +957,14 @@
           let emailFallbackAddress = '';
 
           data.Contact.forEach(ct => {
-            const rawType = String(ct.type || '').trim();
+            const rawType = String(ct.type || '').trim().toLowerCase();
             const val = String(ct.value || '').trim();
             const itemLabel = String(ct.item || '').trim();
             const titleVal = ct.mail_title || '';
             const textVal = ct.mail_text || '';
 
             // 1. type: mail の場合
-            if (rawType.toLowerCase() === 'mail' || rawType === 'メール') {
+            if (rawType === 'mail' || rawType === 'メール') {
               emailFallbackAddress = val;
               const subjectParam = titleVal ? `?subject=${encodeURIComponent(titleVal)}` : '';
               const bodyParam = textVal ? `${subjectParam ? '&' : '?'}body=${encodeURIComponent(textVal)}` : '';
@@ -975,16 +975,16 @@
                   <i class="fa-solid fa-envelope"></i> お問い合わせ
                 </a>`;
 
-            // 2. type: XLink の場合
-            } else if (rawType === 'XLink' || rawType.toLowerCase() === 'xlink' || rawType.toLowerCase().includes('x')) {
+            // 2. type: XLink の場合（完全一致で判定）
+            } else if (rawType === 'xlink' || rawType === 'x' || rawType === 'twitter') {
               const displayLabel = itemLabel ? `𝕏 ${itemLabel}` : '𝕏 X';
               html += `
                 <a href="${val}" target="_blank" rel="noopener noreferrer" class="btn-contact-x">
                   ${escapeHtml(displayLabel)}
                 </a>`;
 
-            // 3. type: externalLink の場合（画像2枚目準拠のブルーピル型ボタン）
-            } else if (rawType === 'externalLink' || rawType.toLowerCase() === 'externallink') {
+            // 3. type: externalLink の場合（青色のピル型ボタン）
+            } else if (rawType === 'externallink' || rawType === '外部リンク') {
               const displayLabel = itemLabel ? `${itemLabel}` : 'Webサイトを見る';
               html += `
                 <a href="${val}" target="_blank" rel="noopener noreferrer" class="btn-contact-external">
