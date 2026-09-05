@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T13:39:58.513Z",
+  "updatedAt": "2026-09-05T13:41:21.629Z",
   "asset": [
     {
       "id": 1,
@@ -149,20 +149,6 @@
     },
     {
       "id": 6,
-      "technology": "非同期データ連携・API連携のハンドリング（Async / Fetch API Integration）:",
-      "skills": [
-        {
-          "system": "",
-          "explanation": "GAS（Google Apps Script）をバックエンドAPIとして、フロントエンド（GitHub Pages）から fetch を用いた非同期データ送受信（JSONデータ処理、エラーハンドリング、ローディング状態の制御）。"
-        },
-        {
-          "system": "",
-          "explanation": "静的ホスティングとサーバーレスAPIを組み合わせたモダンな非同期Webアプリケーションの構築スキル。"
-        }
-      ]
-    },
-    {
-      "id": 7,
       "technology": "SEO・検索エンジン最適化（SEO / Indexing Configuration）:",
       "skills": [
         {
@@ -172,7 +158,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 7,
       "technology": "認証・セッション管理設計:",
       "skills": [
         {
