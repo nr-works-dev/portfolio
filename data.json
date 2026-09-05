@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T13:32:16.929Z",
+  "updatedAt": "2026-09-05T13:39:58.513Z",
   "asset": [
     {
       "id": 1,
@@ -130,6 +130,54 @@
         {
           "system": "GitHub / GitHub Pages",
           "explanation": "リポジトリ管理、デプロイ、バージョン管理"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "technology": "セキュリティ・プライバシー設計（Security & Privacy by Design）:",
+      "skills": [
+        {
+          "system": "",
+          "explanation": "AIスクレイピング対策（robots.txtによる学習ブロック設定）、URLパラメータ（?id=xxx）を活用した安全な詳細モーダルの動的起動制御、第三者による不正な共有URL発行を防ぐ本人限定の動線設計。"
+        },
+        {
+          "system": "",
+          "explanation": "単に機能を作るだけでなく、「悪質な晒しやデータスクレイピングからユーザーを守る」というセキュリティ意識を持った設計・実装スキル。"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "technology": "非同期データ連携・API連携のハンドリング（Async / Fetch API Integration）:",
+      "skills": [
+        {
+          "system": "",
+          "explanation": "GAS（Google Apps Script）をバックエンドAPIとして、フロントエンド（GitHub Pages）から fetch を用いた非同期データ送受信（JSONデータ処理、エラーハンドリング、ローディング状態の制御）。"
+        },
+        {
+          "system": "",
+          "explanation": "静的ホスティングとサーバーレスAPIを組み合わせたモダンな非同期Webアプリケーションの構築スキル。"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "technology": "SEO・検索エンジン最適化（SEO / Indexing Configuration）:",
+      "skills": [
+        {
+          "system": "Google Search Console",
+          "explanation": "Google Search Consoleへのサイト登録、サイトマップ（Sitemap）の作成・送信など、公開したWebサイトを正しくインデックスさせるための実務的なSEO設定。"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "technology": "認証・セッション管理設計:",
+      "skills": [
+        {
+          "system": "Firebase OAuth",
+          "explanation": "Google認証（OAuth）を用いた安全なログイン・セッション管理の実装、LocalStorage/SessionStorageを活用した状態保持"
         }
       ]
     }
