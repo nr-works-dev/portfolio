@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T13:42:39.596Z",
+  "updatedAt": "2026-09-05T13:43:58.226Z",
   "asset": [
     {
       "id": 1,
@@ -135,7 +135,7 @@
     },
     {
       "id": 5,
-      "technology": "セキュリティ・プライバシー設計（Security & Privacy by Design）:",
+      "technology": "Security & Privacy by Design（セキュリティ・プライバシー設計）:",
       "skills": [
         {
           "system": "",
@@ -149,7 +149,7 @@
     },
     {
       "id": 6,
-      "technology": "SEO・検索エンジン最適化（SEO / Indexing Configuration）:",
+      "technology": "SEO / Indexing Configuration（SEO・検索エンジン最適化）:",
       "skills": [
         {
           "system": "Google Search Console",
@@ -159,7 +159,7 @@
     },
     {
       "id": 7,
-      "technology": "認証・セッション管理設計:",
+      "technology": "Firebase OAuth（認証・セッション管理設計）:",
       "skills": [
         {
           "system": "Firebase OAuth",
