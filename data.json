@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T13:41:21.629Z",
+  "updatedAt": "2026-09-05T13:42:39.596Z",
   "asset": [
     {
       "id": 1,
@@ -250,6 +250,7 @@
         "JavaScript",
         "Google Apps Script",
         "GitHub Pages",
+        "OAuth",
         "レスポンシブ",
         "UI/UX",
         "マルチプラットフォーム",
