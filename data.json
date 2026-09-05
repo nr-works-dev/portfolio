@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-08-31T13:49:39.184Z",
+  "updatedAt": "2026-09-05T13:32:16.929Z",
   "asset": [
     {
       "id": 1,
@@ -189,6 +189,38 @@
         "UI/UX",
         "LP",
         "管理画面"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Castelier（キャストリエ）",
+      "comment": "クリエイターと配信者・VTuberに特化した、ノイズのないマッチング・ポートフォリオプラットフォーム。\n作風やスタンスでの絞り込み、各種メディア（画像・音声・動画・Web）のプレビュー機能、安全な相互キープ機能などを搭載。\n金銭の直接やり取りをあえて排除し、外部SNS（Xなど）での安心な個人間連絡に誘導することで、トラブルのリスクを抑えた設計にしています。\n\n【主な機能・特徴】\n・リッチなメディアプレビュー機能: 画像、YouTube等の動画、音声、Webサイトのプレビューを各ユーザーが最大4枠まで登録・表示可能。\n・動的な絞り込み・検索システム: カテゴリや属性・作風タグ、フリーワードによるリアルタイムフィルタリング。\n・安全・安心設計: AIスクレイピング対策（robots.txt）や、不正ユーザーの通報・報告フォームとの連携、本人による安全な共有URL発行機能。",
+      "images": [
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-0.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-1.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-2.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-3.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-4.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-5.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-6.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-7.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-8.jpg",
+        "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-9.jpg"
+      ],
+      "image": "https://raw.githubusercontent.com/nr-works-dev/portfolio/main/assets/web3_image-0.jpg",
+      "web": "https://v-connect-lab.github.io/castelier/",
+      "admin": "",
+      "github": "",
+      "tags": [
+        "HTML/CSS",
+        "JavaScript",
+        "Google Apps Script",
+        "GitHub Pages",
+        "レスポンシブ",
+        "UI/UX",
+        "マルチプラットフォーム",
+        "ユーザー用管理画面",
+        "運営用管理画面"
       ]
     }
   ],
