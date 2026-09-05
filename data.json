@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-05T13:43:58.226Z",
+  "updatedAt": "2026-09-05T13:50:28.819Z",
   "asset": [
     {
       "id": 1,
@@ -159,10 +159,10 @@
     },
     {
       "id": 7,
-      "technology": "Firebase OAuth（認証・セッション管理設計）:",
+      "technology": "Firebase Authentication（認証・セッション管理設計）:",
       "skills": [
         {
-          "system": "Firebase OAuth",
+          "system": "Google OAuth",
           "explanation": "Google認証（OAuth）を用いた安全なログイン・セッション管理の実装、LocalStorage/SessionStorageを活用した状態保持"
         }
       ]
